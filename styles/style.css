@@ -1,0 +1,360 @@
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Increase line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+/*
+  11. Text 62.5% typrography trick
+*/
+html {
+  /* 10px */
+  font-size: 62.5%;
+}
+
+body {
+  /* 16px */
+  font-size: 1.6rem;
+}
+
+/** Variables */
+
+:root {
+  /* Colour */
+  --dark-magenta: hsl(300, 43%, 22%);
+  --soft-pink: hsl(333, 80%, 67%);
+  --dark-gray-magenta: hsl(303, 10%, 53%);
+  --light-gray-magenta: hsl(300, 24%, 96%);
+  --white: hsl(0, 0%, 100%);
+  /* Fonts */
+  --league-sparten: "League Spartan", sans-serif;
+  /* units */
+  --border-radius: 1rem;
+  --spacing: 3.2rem;
+  --mid-space: 2.4rem;
+  --small-space: 1.6rem;
+  --smallest-space: 1rem;
+  /* transition */
+  --default-transition: all 0.3s ease;
+}
+
+/** Global styles */
+
+/** Container */
+body{
+  background-image:
+    url(../images/bg-pattern-top-mobile.svg),
+    url(../images/bg-pattern-bottom-mobile.svg);
+  background-repeat: no-repeat, no-repeat;
+  background-position:
+    top left,
+    bottom right;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing);
+  padding: var(--mid-space);
+  min-height: 100vh;
+  max-width: 144rem;
+  margin: 0 auto;
+} 
+
+/** Typography */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+a {
+  font-family: var(--league-sparten);
+}
+
+/** Hero */
+#hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--small-space);
+  padding-bottom: var(--spacing);
+}
+
+h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--dark-magenta);
+  text-align: center;
+}
+
+h2.subtitle {
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--dark-gray-magenta);
+  text-align: center;
+}
+
+/** Profesional reviews */
+
+#profesional-reviews {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--small-space);
+  width: 100%;
+}
+.review-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--smallest-space);
+  padding: var(--smallest-space);
+  background-color: var(--light-gray-magenta);
+  border-radius: var(--border-radius);
+  width: 100%;
+}
+.review-card h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--dark-magenta);
+  text-align: center;
+}
+
+.stars {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/** Buyer reviews */
+#buyer-reviews {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--small-space);
+  width: 100%;
+}
+
+.buyer-review-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--mid-space);
+  padding: var(--smallest-space);
+  background-color: var(--dark-magenta);
+  color: var(--white);
+  border-radius: var(--border-radius);
+  width: 100%;
+  padding: var(--mid-space);
+}
+
+.author {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--mid-space);
+}
+
+.author img {
+  border-radius: 50%;
+  height: 4.8rem;
+  width: 4.8rem;
+  object-fit: cover;
+}
+
+.name {
+  font-weight: 500;
+  color: var(--light-gray-magenta);
+}
+
+.buyer {
+  color: var(--soft-pink);
+}
+
+/** Footer */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: var(--mid-space);
+  background-color: var(--dark-magenta);
+  color: var(--white);
+}
+
+footer a {
+  color: var(--soft-pink);
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--default-transition);
+}
+
+footer a:hover {
+  color: var(--white);
+}
+
+/*TODO Media queries */
+
+@media (min-width: 64rem) {
+  /** container adjustments*/
+  body {
+    background-image:
+      url(../images/bg-pattern-top-desktop.svg),
+      url(../images/bg-pattern-bottom-desktop.svg);
+  }
+
+  /** Hero adjustments */
+  .section-collection {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing);
+  }
+  .review-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: var(--mid-space);
+    width: fit-content;
+    padding: 1.5rem 4rem;
+  }
+  #hero {
+    max-width: 33%;
+  }
+  #profesional-reviews {
+    max-width: 66%;
+  }
+  .stars {
+    align-items: center;
+    gap: var(--smallest-space);
+  }
+
+ /* Card 1: Snaps to the left edge */
+  .review-card:first-of-type {
+    align-self: flex-start;
+  }
+
+  /* Card 2: Snaps to the dead center */
+  .review-card:nth-of-type(2) {
+    align-self: center;
+  }
+
+  /* Card 3: Snaps to the right edge */
+  .review-card:last-of-type {
+    align-self: flex-end;
+  }
+  h1 {
+    font-size: 4.2rem;
+    text-align: start;
+  }
+
+  h2.subtitle {
+    font-size: 2.4rem;
+    text-align: start;
+    text-wrap: pretty;
+  }
+
+  /** Buyer review adjustmnets */
+  #buyer-reviews {
+    flex-direction: row;
+  }
+  /* Card 1: sits normally */
+  .buyer-review-card:first-of-type {
+    margin-top: 0;
+  }
+  /* Card 2: Pushed over a bit */
+  .buyer-review-card:nth-of-type(2) {
+    margin-top: 6rem;
+  }
+  /* Card 3: Pushed over the most */
+  .buyer-review-card:last-of-type {
+    margin-top: 9rem;
+  }
+}
